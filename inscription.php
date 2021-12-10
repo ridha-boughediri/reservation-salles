@@ -36,7 +36,7 @@ if (isset($_POST['signin'])) {
 
 <body>
     <div id="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
+        <h3 class="text-center text-white pt-5">Formulaire d'inscription</h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
@@ -56,7 +56,7 @@ if (isset($_POST['signin'])) {
                                 <input type="text" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">RePassword:</label><br>
+                                <label for="password" class="text-info">Repeat Password:</label><br>
                                 <input type="text" name="confpassword" id="password" class="form-control">
                             </div>
                             <div class="form-group">
