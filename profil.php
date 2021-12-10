@@ -1,5 +1,8 @@
 <?php
 
+include('./fileconfig/config.php');
+include('./fileconfig/configuser.php');
+
 ?>
 
 <!DOCTYPE html>
