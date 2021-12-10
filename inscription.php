@@ -1,6 +1,7 @@
 <?php
-session_start();
-$bdd = new PDO('mysql:host=localhost ;dbname=reservationsalles', 'root', '');
+
+include('./fileconfig/config.php');
+include('./fileconfig/configuser.php');
 
 if (isset($_POST['signin'])) {
     $login = htmlspecialchars($_POST['login']);
@@ -13,11 +14,6 @@ if (isset($_POST['signin'])) {
         }
     }
 }
-
-
-
-include('./fileconfig/config.php');
-include('./fileconfig/configuser.php');
 
 ?>
 
@@ -33,8 +29,6 @@ include('./fileconfig/configuser.php');
 </head>
 
 <body>
-    
-    <!------ Include the above in your HEAD tag ---------->
     <div id="login">
         <h3 class="text-center text-white pt-5">Login form</h3>
         <div class="container">
