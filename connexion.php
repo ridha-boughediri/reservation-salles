@@ -15,8 +15,10 @@ if (isset($_POST['val-button'])) {
             $sqlinfos = $sql->fetch();
             header('Location: ./index.php');
         } else {
-            echo "Compte introuvable";
+            $erreur = "Compte introuvable";
         }
+    } else {
+        $erreur =  "Champs incomplet";
     }
 }
 
@@ -67,6 +69,12 @@ if (isset($_POST['val-button'])) {
             </div>
         </div>
     </div>
+    <?php
+    if (isset($erreur)) { ?>
+        <center><p style="color: red;"><?php echo $erreur; ?></p></center>
+    <?php
+    }
+    ?>
 </body>
 
 </html>

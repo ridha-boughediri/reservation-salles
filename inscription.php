@@ -14,10 +14,10 @@ if (isset($_POST['signin'])) {
             $insertuser->execute(array($login, $mail, $password));
             header('Location: connexion.php');
         } else {
-            echo "Mot de passe different";
+            $erreur = "Mot de passe different";
         }
     } else {
-        echo "Champs incomplet";
+        $erreur = "Champs incomplet";
     }
 }
 
@@ -69,6 +69,12 @@ if (isset($_POST['signin'])) {
             </div>
         </div>
     </div>
+    <?php
+    if (isset($erreur)) { ?>
+       <center><p style="color: red;"><?php echo $erreur; ?></p></center> 
+    <?php
+    }
+    ?>
 </body>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
