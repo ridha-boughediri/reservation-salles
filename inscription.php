@@ -10,8 +10,14 @@ if (isset($_POST['signin'])) {
     $confpassword = sha1($_POST['confpassword']);
     if (!empty($_POST['login']) and !empty($_POST['mail']) and !empty($_POST['password'])) {
         if ($password == $confpassword) {
-            # code...
+            $insertuser = $bdd->prepare('INSERT INTO utilisateurs (login, mail, password) VALUES (?,?,?)');
+            $insertuser->execute(array($login, $mail, $password));
+            header('Location: connexion.php');
+        }else {
+            echo "Mot de passe different";
         }
+    }else {
+        echo "Champs incomplet";
     }
 }
 
@@ -56,9 +62,6 @@ if (isset($_POST['signin'])) {
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                 <input type="submit" name="signin" class="btn btn-info btn-md" value="submit">
-                            </div>
-                            <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
                             </div>
                         </form>
                     </div>
