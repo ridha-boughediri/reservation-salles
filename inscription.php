@@ -13,10 +13,10 @@ if (isset($_POST['signin'])) {
             $insertuser = $bdd->prepare('INSERT INTO utilisateurs (login, mail, password) VALUES (?,?,?)');
             $insertuser->execute(array($login, $mail, $password));
             header('Location: connexion.php');
-        }else {
+        } else {
             echo "Mot de passe different";
         }
-    }else {
+    } else {
         echo "Champs incomplet";
     }
 }
