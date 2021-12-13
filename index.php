@@ -14,9 +14,9 @@ include('./fileconfig/configuser.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/stylescrollbar.css">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Accueil | Magic View Hotel</title>
 </head>
 
