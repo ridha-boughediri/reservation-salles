@@ -45,7 +45,7 @@ if (isset($_POST['edit'])) {
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
     <div id="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
+        <h3 class="text-center text-white pt-5">Modification de son profil</h3>
         <div class="container">
             <?php
             $recupUsers = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?');
