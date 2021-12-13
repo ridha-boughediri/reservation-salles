@@ -15,7 +15,7 @@ if (isset($_GET['deco'])) {
             <h2 class="goto">Réserver une chambre</h2>
         </div>
         <div class="logo">
-            <img src="./img/logo.png" alt="">
+            <img src="./img/logo.png" onclick="gotoindex()" alt="">
         </div>
 
         <?php if (isset($_SESSION['id'])) { ?>
@@ -39,6 +39,10 @@ if (isset($_GET['deco'])) {
 
     function gotoconnexion() {
         window.location = './connexion.php';
+    }
+
+    function gotoindex() {
+        window.location = './index.php';
     }
 
     function gotoprofile() {
