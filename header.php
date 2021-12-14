@@ -46,7 +46,7 @@ if (isset($_GET['deco'])) {
     }
 
     function gotoprofile() {
-        window.location = './profil.php';
+        window.location = './reservations.php';
     }
 
     function gotodeconnexion() {
