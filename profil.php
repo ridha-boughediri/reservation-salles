@@ -41,7 +41,7 @@ if (isset($_SESSION['id'])) {
         <link rel="stylesheet" href="./css/header.css">
         <link rel="stylesheet" href="./css/footer.css">
         <link rel="stylesheet" href="./css/profil.css">
-        <title>Profil</title>
+        <title>Magic View Hotel | Profil</title>
     </head>
 
     <body>

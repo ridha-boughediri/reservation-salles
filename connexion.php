@@ -28,7 +28,7 @@ if (!isset($_SESSION['id'])) {
 ?>
 
     <!DOCTYPE html>
-    <html lang="fr">
+    <html lang="fr-FR">
 
     <head>
         <meta charset="UTF-8">
@@ -39,7 +39,7 @@ if (!isset($_SESSION['id'])) {
         <link rel="stylesheet" href="./css/footer.css">
         <link rel="stylesheet" href="./css/signinandsignup.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Connexion</title>
+        <title>Magic View Hotel | Connexion</title>
     </head>
 
     <body>

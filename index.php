@@ -17,7 +17,7 @@ include('./fileconfig/configuser.php');
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Accueil | Magic View Hotel</title>
+    <title>Magic View Hotel | Accueil</title>
 </head>
 
 <body>
@@ -72,7 +72,7 @@ include('./fileconfig/configuser.php');
         }
 
         function gotoallchamber() {
-            window.location = './';
+            window.location = './chambres.php';
         }
     </script>
 </body>

@@ -11,8 +11,8 @@ if (isset($_GET['deco'])) {
 <header>
     <nav>
         <div class="list-goto">
-            <h2 class="goto">Infos Hotel</h2>
-            <h2 class="goto">Réserver une chambre</h2>
+            <h2 class="goto" onclick="gotoinfos()">Infos Hotel</h2>
+            <h2 class="goto" onclick="gotoreschamber()">Réserver une chambre</h2>
         </div>
         <div class="logo">
             <img src="./img/logo.png" onclick="gotoindex()" alt="">
@@ -33,6 +33,10 @@ if (isset($_GET['deco'])) {
 </header>
 
 <script>
+    function gotoinfos() {
+        window.location = './infos.php';
+    }
+
     function gotoincription() {
         window.location = './inscription.php';
     }

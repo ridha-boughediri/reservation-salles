@@ -37,7 +37,7 @@ if (!isset($_SESSION['id'])) {
         <link rel="stylesheet" href="./css/footer.css">
         <link rel="stylesheet" href="./css/signinandsignup.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inscription</title>
+        <title>Magic View Hotel | Inscription</title>
     </head>
 
     <body>
