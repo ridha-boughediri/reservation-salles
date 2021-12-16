@@ -9,7 +9,9 @@ body {
     width: 100%;
     min-height: max-content;
     height: 100%;
+    background-color: whitesmoke;
 }
+
 
 main {
     width: 100%;
@@ -32,12 +34,17 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    
 }
 
 .contener-main{
+    background-color: white;
     border: #820933 solid 5px;
     border-radius: 15px;
     padding: 2%;
+    box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+    
 }
 
 .input-res, .input-cal, .input-butt{
