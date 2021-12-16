@@ -3,6 +3,8 @@
 include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
+$getres = $bdd->query('SELECT * FROM reservations LIMIT 3');
+
 ?>
 
 <!DOCTYPE html>
@@ -46,20 +48,25 @@ include('./fileconfig/configuser.php');
         </div>
     </main>
     <div class="plusart">
-        <p>Dernière reservations...</p>
+        <p onclick="gotoallres()">Voir les réservations...</p>
     </div>
     <article>
+        <?php while ($reservations = $getres->fetch()) { ?>
+        
+        
         <div class="card">
-            <div class="card-a">
+            <a href="" class="card-a">
                 <div class="content-img">
+                    <img src="./img/" alt="">
                 </div>
 
                 <div class="content-text">
-                    <h6 class="text-article">...</h6>
+                    <h6 class="text-article"><?php echo $reservations['titre'] ?></h6>
                     <img src="./img/play.png" alt="">
                 </div>
-            </div>
+            </a>
         </div>
+        <?php } ?>
     </article>
     <div id="threeart"></div>
     <?php include('./footer.php'); ?>
@@ -69,6 +76,10 @@ include('./fileconfig/configuser.php');
                 behavior: 'smooth',
                 block: 'center'
             });
+        }
+
+        function gotoallres() {
+            window.location = './reservation.php';
         }
     </script>
 </body>

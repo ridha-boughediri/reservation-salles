@@ -5,7 +5,6 @@ include('./fileconfig/configuser.php');
 
 
 $getRESER = $bdd->prepare('SELECT * FROM reservations');
-$getRESER->execute();
 $reservations = $getRESER->fetchAll();
 
 if (isset($_POST['ajout'])) {

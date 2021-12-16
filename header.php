@@ -37,10 +37,6 @@ if (isset($_GET['deco'])) {
         window.location = './infos.php';
     }
 
-    function gotoreschamber() {
-        window.location = './reservations.php';
-    }
-
     function gotoincription() {
         window.location = './inscription.php';
     }
