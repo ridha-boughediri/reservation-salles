@@ -11,6 +11,7 @@ if (isset($_POST['button1'])) {
         $insertRES = $bdd->prepare('INSERT INTO reservations (titre, description, debut, fin, id_utilisateur) VALUES (?,?,?,?,?)');
         $insertRES->execute(array($titre, $description, $dateDeb, $dateFin, $getid));
         $erreur = "votre reservation est prise en compte";
+        header('Location: ./reservation.php');
     } else {
         $erreur = "Veuillez remplir les champs";
     }
@@ -30,7 +31,7 @@ if (isset($_POST['button1'])) {
     <link rel="stylesheet" href="./css/stylescrollbar.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/reservation.css">
+    <link rel="stylesheet" href="./css/reservation-form.css">
     <title>Réservation</title>
 </head>
 

@@ -53,6 +53,10 @@ if (isset($_GET['deco'])) {
         window.location = './index.php';
     }
 
+    function gotoreschamber() {
+        window.location = './reservation-form.php';
+    }
+
     function gotoprofile() {
         window.location = './profil.php';
     }
