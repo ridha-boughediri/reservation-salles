@@ -45,23 +45,23 @@ include('./fileconfig/configuser.php');
             </div>
         </div>
     </main>
+    <div class="plusart">
+        <p>Dernière reservations...</p>
+    </div>
     <article>
         <div class="card">
-            <a href="" class="card-a">
+            <div class="card-a">
                 <div class="content-img">
-                    <img src="./img/" alt="">
                 </div>
 
                 <div class="content-text">
                     <h6 class="text-article">...</h6>
                     <img src="./img/play.png" alt="">
                 </div>
-            </a>
+            </div>
         </div>
     </article>
-    <div class="plusart" id="threeart">
-        <p onclick="gotoallchamber()">Voir toutes nos chambres...</p>
-    </div>
+    <div id="threeart"></div>
     <?php include('./footer.php'); ?>
     <script>
         function dropdown() {
@@ -69,10 +69,6 @@ include('./fileconfig/configuser.php');
                 behavior: 'smooth',
                 block: 'center'
             });
-        }
-
-        function gotoallchamber() {
-            window.location = './chambres.php';
         }
     </script>
 </body>
