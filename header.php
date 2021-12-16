@@ -50,7 +50,7 @@ if (isset($_GET['deco'])) {
     }
 
     function gotoreschamber() {
-        window.location = './reservations.php';
+        window.location = './reservation-form.php';
     }
 
     function gotoprofile() {
