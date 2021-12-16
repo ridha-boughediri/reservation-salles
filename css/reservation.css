@@ -9,6 +9,7 @@ body {
     width: 100%;
     min-height: max-content;
     height: 100%;
+    background-color: whitesmoke;
 }
 
 main {
@@ -16,47 +17,78 @@ main {
     min-height: 90%;
     height: max-content;
     display: flex;
-    padding-top: 7%;
+    flex-direction: column;
+    padding-top: 15vh;
     align-items: center;
     justify-content: center;
 }
 
+
 .titre {
+    font-family: "Tangerine";
     text-align: center;
-    font-family: "tangerine";
-    font-size: 200%;
-
-}
-
-.contener-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contener-main{
-    border: #820933 solid 5px;
-    border-radius: 15px;
-    padding: 2%;
-}
-
-.input-res, .input-cal, .input-butt{
+    font-size: 6vh;
     padding-top: 3%;
-    padding-bottom: 3%;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    border-radius: 15px;
-    text-align: center;
-    font-family: "tangerine";
-    font-size: 150%;
 }
 
-.input-butt{
-    padding-left: 5%;
-    padding-right: 5%;
+.parag {
+    font-family: "Tangerine";
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 5vh;
+}
+
+.contener-reservation {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border: solid #820933 3px;
+    border-radius: 15px;
+    margin: 5% 25%;
+    width: 90vh;
+    height: 45vh;
+    transform: scale(1);
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    font-family: "Tangerine";
+    font-size: 4vh;
+    background-color: white;
+}
+
+.contener-reservation:hover {
+    transform: scale(1.1, 1.1) translateZ(0px) translate3d(0px, 0px, 0px);
+    transition-duration: 300ms;
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;
+}
+
+.button1 {
+    border-radius: 10px;
+    padding: 5% 3%;
+    margin-bottom: 4vh;
+
+}
+
+/* iPhone X (landscape) */
+@media only screen and (min-width: 374px) and (max-width: 377px) {
+    .contener-reservation {
+
+        width: 30vh;
+        height: 10vh;
+
+    }
+    .titre {
+        
+        font-size: 3vh;
+    }
+    
+    .parag {
+        
+        font-size: 2vh;
+    }
 }
 
 @font-face {
-    font-family: "tangerine";
+    font-family: "Tangerine";
     src: url(../font/Tangerine-Regular.ttf);
 }
