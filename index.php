@@ -3,6 +3,8 @@
 include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
+$getres = $bdd->query('SELECT * FROM reservations LIMIT 3');
+
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +47,13 @@ include('./fileconfig/configuser.php');
             </div>
         </div>
     </main>
+    <div class="plusart">
+        <p onclick="gotoallres()">Voir les réservations...</p>
+    </div>
     <article>
+        <?php while ($reservations = $getres->fetch()) { ?>
+        
+        
         <div class="card">
             <a href="" class="card-a">
                 <div class="content-img">
@@ -53,15 +61,14 @@ include('./fileconfig/configuser.php');
                 </div>
 
                 <div class="content-text">
-                    <h6 class="text-article">...</h6>
+                    <h6 class="text-article"><?php echo $reservations['titre'] ?></h6>
                     <img src="./img/play.png" alt="">
                 </div>
             </a>
         </div>
+        <?php } ?>
     </article>
-    <div class="plusart" id="threeart">
-        <p onclick="gotoallchamber()">Voir toutes nos chambres...</p>
-    </div>
+    <div id="threeart"></div>
     <?php include('./footer.php'); ?>
     <script>
         function dropdown() {
@@ -71,8 +78,8 @@ include('./fileconfig/configuser.php');
             });
         }
 
-        function gotoallchamber() {
-            window.location = './chambres.php';
+        function gotoallres() {
+            window.location = './reservation.php';
         }
     </script>
 </body>
