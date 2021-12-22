@@ -3,7 +3,7 @@
 include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
-if (isset($_SESSION['id'])) {
+// if (isset($_SESSION['id'])) {
 
 
     if (isset($_POST['edit'])) {
@@ -83,4 +83,4 @@ if (isset($_SESSION['id'])) {
 
     </html>
 
-<?php } ?>
+<?php // } ?>
