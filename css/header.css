@@ -36,6 +36,7 @@ nav {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding-right: 3%;
 }
 
 .logo {

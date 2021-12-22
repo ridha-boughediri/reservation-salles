@@ -8,6 +8,6 @@
 
 <script>
     function gogit() {
-        window.location = 'https://github.com/Samir-Belhadj';
+        window.location = 'https://github.com/';
     }
 </script>

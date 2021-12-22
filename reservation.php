@@ -4,8 +4,7 @@ include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
 
-$getRESER = $bdd->prepare('SELECT * FROM reservations');
-$getRESER->execute();
+$getRESER = $bdd->query('SELECT * FROM reservations');
 $reservations = $getRESER->fetchAll();
 
 if (isset($_POST['ajout'])) {
@@ -24,7 +23,7 @@ if (isset($_POST['ajout'])) {
     <link rel="stylesheet" href="./css/reservation.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
-    
+
     <title>Reservation</title>
 </head>
 
