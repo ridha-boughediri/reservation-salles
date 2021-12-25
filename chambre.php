@@ -8,6 +8,9 @@ $getchamb = $bdd->prepare('SELECT * FROM chambres WHERE id = ? ');
 $getchamb->execute(array($getidchamber));
 $getchambinfos = $getchamb->fetch();
 
+if (isset($_POST['gotodispo'])) {
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,25 +36,24 @@ $getchambinfos = $getchamb->fetch();
                 <div class="place-view">
                     <div class="infos-content">
                         <h2 class="title-name"><?php echo $getchambinfos["nom"]; ?></h2>
+                        <div class="lign-color"></div>
                         <p class="infos-import">
-                            <?php echo $getchambinfos["price"]; ?>$ •
-                            <?php echo 'chambre de luxe' ?>
+                            <?php echo $getchambinfos["price"]; ?>$ / nuit •
+                            <?php echo 'Chambre de Luxe' ?>
                         </p>
                     </div>
                     <form class="group-btn" action="" method="post">
-                        <button class="btn-view" title="Réserver la Chambre" name="play" type="submit">Réserver la Chambre</button>
+                        <button class="btn-view" name="gotodispo" title="Réserver la Chambre" name="play" type="submit">Voir les disponibilités</button>
                     </form>
                 </div>
             </div>
         </section>
         <article>
-            <div class="tagline-content">
-                <h5 class="title-tagline">.................</h5>
-            </div>
-            <div class="synopsis-content">
-                <h4 class="title-synopsis">Lorem:</h4>
-                <div class="text-synopsis">
-                    .................
+
+            <div class="desc-content">
+                <h4 class="title-desc">Description:</h4>
+                <div class="text-desc">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus fugit voluptatibus enim veniam incidunt, excepturi, hic dolore unde maiores blanditiis quia. Repudiandae perferendis, culpa ad consequatur quis quidem at illum.
                 </div>
             </div>
 

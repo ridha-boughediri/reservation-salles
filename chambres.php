@@ -30,21 +30,35 @@ $getchambers = $bdd->query('SELECT * FROM chambres');
         </div>
         <?php while ($getchambersinfos = $getchambers->fetch()) { ?>
             <div class="card">
-                <a href="./chambre.php?id=<?php echo $getchambersinfos['id'] ?>" class="card-a">
-                    <div class="content-img">
-                        <!-- <img src="./img/imgcard/<?php echo $getchambersinfos['imgcard'] ?>" alt=""> -->
+                <div class="card-a">
+
+                    <div class="content-title">
+                        <h2 class="text-title"><?php echo $getchambersinfos['nom'] ?></h2>
+                    </div>
+                    <div class="imgandbtn">
+                        <div class="content-img-card">
+                            <img class="img-card" src="./img/imgcard/<?php echo $getchambersinfos['imgcard'] ?>" alt="">
+                        </div>
+
+                        <div class="content-btn-res">
+                            <button class="btn-res">
+                                <a href="">Voir les disponibilités </a>
+                                <img class="btn-logo" src="./img/play.png" alt="">
+                            </button>
+                            <button class="btn-res">
+                                <a href="./chambre.php?id=<?php echo $getchambersinfos['id'] ?>">Voir la chambre</a>
+                                <img class="btn-logo" src="./img/play.png" alt="">
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="content-text">
-                        <h2 class="text-name"><?php echo $getchambersinfos['nom'] ?></h2>
-                        <img src="./img/play.png" alt="">
-                    </div>
-                </a>
+                </div>
             </div>
 
         <?php } ?>
     </main>
     <?php include('./footer.php'); ?>
 </body>
+
 
 </html>
