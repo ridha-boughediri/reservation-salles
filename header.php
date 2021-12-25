@@ -12,7 +12,7 @@ if (isset($_GET['deco'])) {
     <nav>
         <div class="list-goto">
             <h2 class="goto" onclick="gotoinfos()">Infos Hotel</h2>
-            <h2 class="goto" onclick="gotoreschamber()">Réserver une chambre</h2>
+            <h2 class="goto" onclick="gotoreschamber()">Nos chambres</h2>
         </div>
         <div class="logo">
             <img src="./img/logo.png" onclick="gotoindex()" alt="">
@@ -50,7 +50,7 @@ if (isset($_GET['deco'])) {
     }
 
     function gotoreschamber() {
-        window.location = './reservation-form.php';
+        window.location = './chambres.php';
     }
 
     function gotoprofile() {
