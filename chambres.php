@@ -42,7 +42,7 @@ $getchambers = $bdd->query('SELECT * FROM chambres');
 
                         <div class="content-btn-res">
                             <button class="btn-res">
-                                <a href="">Voir les disponibilités </a>
+                                <a href="./planning.php?id=<?php echo $getchambersinfos['id'] ?>">Voir les disponibilités </a>
                                 <img class="btn-logo" src="./img/play.png" alt="">
                             </button>
                             <button class="btn-res">

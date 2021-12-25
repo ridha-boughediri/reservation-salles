@@ -9,6 +9,7 @@ $getchamb->execute(array($getidchamber));
 $getchambinfos = $getchamb->fetch();
 
 if (isset($_POST['gotodispo'])) {
+    header("Refresh:0; url=./planning.php?id=" . $getidchamber );
 }
 
 ?>
@@ -43,7 +44,7 @@ if (isset($_POST['gotodispo'])) {
                         </p>
                     </div>
                     <form class="group-btn" action="" method="post">
-                        <button class="btn-view" name="gotodispo" title="Réserver la Chambre" name="play" type="submit">Voir les disponibilités</button>
+                        <button class="btn-view" name="gotodispo" title="Voir les disponibilités" type="submit">Voir les disponibilités</button>
                     </form>
                 </div>
             </div>
