@@ -4,6 +4,9 @@ include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
 if (isset($_GET['id'])) {
+    $getchamber = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ? ');
+    $getchamber->execute(array($_GET['id']));
+    $chamberinfo = $getchamber->fetch();
 ?>
 
     <!DOCTYPE html>
@@ -31,15 +34,49 @@ if (isset($_GET['id'])) {
                 <div class="lign-color"></div>
                 <div class="container-planning">
                     <?php
-                    echo $tomorrow1 = strftime("%B %G");
-                    echo '<br>';
-                    for ($i = 0; $i < 7; $i++) {
-                        $tomorrow = strftime(" %d ", strtotime("+" . $i . "days"));
+                    for ($d = 0; $d < 7; $d++) {
+                        $dwl = strftime("%A", strtotime("+" . $d . "days"));
+                        $dwn = strftime("%d", strtotime("+" . $d . "days"));
+                        $dwn2 = strftime("%w", strtotime("+" . $d . "days"));
+                        $month = strftime("%B", strtotime("+" . $d . "days"));
+                        $monthwl = strftime("%m", strtotime("+" . $d . "days"));
+                        $year = strftime("%G", strtotime("+" . $d . "days"));
+                        if ($dwn2 >= 1 && $dwn2 <= 5) {
 
-                        echo $tomorrow;
-                        echo '<br>';
-                    }
                     ?>
+                            <div class="boxday">
+
+                                <h4 class="titleday"><?php echo $dwl . ' ' . $dwn .$monthwl. ' ' . $month . ' ' . $year ?></h4>
+                                <?php
+                                $heure_depart_matin = 8;
+                                $heure_fin_matin = 12;
+                                for ($hm = $heure_depart_matin; $hm <= $heure_fin_matin; $hm++) {
+                                    $dateviewwant = '';
+                                ?>
+                                    <?php echo $hm . ": 00"; ?><button type="submit" class="btn-view"></button>
+                                <?php
+
+
+                                }
+                                ?>
+                                <br>
+                                <div class="lign-color2"></div>
+                                <br>
+                                <?php
+                                $heure_depart_midi = 14;
+                                $heure_fin_midi = 19;
+                                for ($ha = $heure_depart_midi; $ha <= $heure_fin_midi; $ha++) {
+                                ?>
+                                    <?php echo $ha .  ": 00"; ?> <button type="submit" class="btn-view"></button>
+                            <?php
+                                }
+                            }
+                            ?>
+                            </div>
+                        <?php
+                    }
+
+                        ?>
                 </div>
             </div>
         </main>
