@@ -131,8 +131,22 @@ section {
   font-size: 4vh;
 }
 
+.dex {
+  color: grey;
+  border: grey 1px solid;
+  background-color: rgba(255, 255, 255, 0.438);
+  cursor: not-allowed;
+}
+
 .btn-view:hover {
   transform: scale(1.1, 1.1) translateZ(0px) translate3d(0px, 0px, 0px);
+  transition-duration: 300ms;
+  transition-property: transform, box-shadow;
+  transition-timing-function: ease-out;
+}
+
+.dex:hover {
+  transform: scale(1, 1) translateZ(0px) translate3d(0px, 0px, 0px);
   transition-duration: 300ms;
   transition-property: transform, box-shadow;
   transition-timing-function: ease-out;
@@ -162,7 +176,7 @@ article {
   font-size: 3vh;
 }
 
-.desc-content  {
+.desc-content {
   transform: translateX(0px);
   animation: slide-text-up 800ms ease-out 0s;
 }

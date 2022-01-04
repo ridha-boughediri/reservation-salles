@@ -182,18 +182,28 @@ main {
   justify-content: center;
   height: 4vh;
   width: 70%;
-  padding: 1%;
-  border: rgb(130, 9, 51) 1px solid;
+  padding: 1vh;
   background-color: rgba(255, 255, 255, 0.438);
   border-radius: 15px;
-  cursor: pointer;
   transform: scale(1);
   transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-  margin-right: 3%;
-  color: white;
   font-family: "Tangerine-Regular";
   font-weight: bold;
-  font-size: 4vh;
+  font-size: 2vh;
+  overflow: hidden;
+}
+
+.dispo {
+  border: rgb(130, 9, 51) 1px solid;
+  color: rgb(130, 9, 51);
+  cursor: pointer;
+}
+
+
+.indispo {
+  border: grey 1px solid;
+  color: grey;
+  cursor: not-allowed;
 }
 
 .btn-view:hover {

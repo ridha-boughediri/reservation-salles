@@ -126,7 +126,8 @@ main {
     font-size: 3vh;
 }
 
-.btn-res a{
+.btn-res a,
+.btn-res div {
     text-decoration: none;
     color: rgb(130, 9, 51);
 }
@@ -139,6 +140,17 @@ main {
 .content-text img {
     width: 40px;
     height: 40px;
+}
+
+
+.dex {
+    color: grey;
+    background-color: rgba(255, 255, 255, 0.438);
+    cursor: not-allowed;
+}
+
+.none {
+    opacity: 0.5;
 }
 
 @font-face {

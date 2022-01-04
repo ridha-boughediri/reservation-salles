@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 03 jan. 2022 à 09:29
+-- Généré le : mar. 04 jan. 2022 à 09:27
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -68,13 +68,12 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `titre`, `description`, `debut`, `fin`, `id_utilisateur`) VALUES
-(6, 'Sejour royal', 'sejour dans la suite parental', '2021-12-16 12:00:00', '2021-12-18 14:00:00', 1),
-(7, 'sejour nubtial', 'sejour pour nos noces', '2021-12-24 11:00:00', '2021-12-25 19:00:00', 1),
-(8, 'Sejour royal', 'sejour dans la suite parental', '2021-12-16 12:00:00', '2021-12-18 14:00:00', 1),
-(9, 'Sejour parental', 'sejour dans la suite parental', '2021-12-29 12:00:00', '2021-12-31 14:00:00', 1),
-(10, 'Voyage gratuit', 'tout est gratuit', '2021-12-01 13:27:00', '2021-12-04 13:28:00', 1),
-(11, 'blabla', 'c\'est super genial', '2021-12-17 13:29:00', '2021-12-02 13:29:00', 1),
-(12, 'Berline de luxe', 'Je voyage dans ma berline de luxe', '2022-01-06 14:00:00', '2022-01-09 10:00:00', 1);
+(6, 'laroyale', 'sejour dans la suite parental', '2022-01-04 11:00:00', '2022-01-04 14:00:00', 1),
+(7, 'lapdeluxe', 'sejour pour nos noces', '2021-12-24 11:00:00', '2021-12-25 19:00:00', 1),
+(8, 'laexecut', 'sejour dans la suite parental', '2021-12-16 12:00:00', '2021-12-18 14:00:00', 1),
+(9, 'laroyale', 'sejour dans la suite parental', '2021-12-29 12:00:00', '2021-12-31 14:00:00', 1),
+(10, 'lapdeluxe', 'tout est gratuit', '2021-12-01 13:27:00', '2021-12-04 13:28:00', 1),
+(11, 'laexecut', 'c\'est super genial', '2021-12-17 13:29:00', '2021-12-02 13:29:00', 1);
 
 -- --------------------------------------------------------
 

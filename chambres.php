@@ -41,12 +41,20 @@ $getchambers = $bdd->query('SELECT * FROM chambres');
                         </div>
 
                         <div class="content-btn-res">
-                            <button class="btn-res">
-                                <a href="./planning.php?id=<?php echo $getchambersinfos['id'] ?>">Voir les disponibilités </a>
-                                <img class="btn-logo" src="./img/play.png" alt="">
-                            </button>
-                            <button class="btn-res">
-                                <a href="./chambre.php?id=<?php echo $getchambersinfos['id'] ?>">Voir la chambre</a>
+
+                            <?php if (isset($_SESSION['id'])) { ?>
+                                <button class="btn-res" onclick="window.location.href='./planning.php?id=<?php echo $getchambersinfos['imgcard'] ?>';">
+                                    <div>Voir les disponibilités </div>
+                                    <img class="btn-logo" src="./img/play.png" alt="">
+                                </button>
+                            <?php } else { ?>
+                                <button class="btn-res dex" onclick="window.location.href='./planning.php?id=<?php echo $getchambersinfos['imgcard'] ?>';">
+                                    <div>Indisponibles (Connectez-vous) </div>
+                                    <img class="btn-logo none" src="./img/none.png" alt="">
+                                </button>
+                            <?php } ?>
+                            <button class="btn-res" onclick="window.location.href='./chambre.php?id=<?php echo $getchambersinfos['imgcard'] ?>';">
+                                <div>Voir la chambre</div>
                                 <img class="btn-logo" src="./img/play.png" alt="">
                             </button>
                         </div>

@@ -4,7 +4,7 @@ include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
 if (isset($_GET['id'])) {
-    $getchamber = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ? ');
+    $getchamber = $bdd->prepare('SELECT * FROM reservations WHERE titre = ? ');
     $getchamber->execute(array($_GET['id']));
     $chamberinfo = $getchamber->fetch();
 ?>
@@ -33,50 +33,36 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="lign-color"></div>
                 <div class="container-planning">
-                    <?php
-                    for ($d = 0; $d < 7; $d++) {
+                    <?php for ($d = 0; $d < 7; $d++) { ?>
+                        <?php
                         $dwl = strftime("%A", strtotime("+" . $d . "days"));
                         $dwn = strftime("%d", strtotime("+" . $d . "days"));
                         $dwn2 = strftime("%w", strtotime("+" . $d . "days"));
-                        $month = strftime("%B", strtotime("+" . $d . "days"));
-                        $monthwl = strftime("%m", strtotime("+" . $d . "days"));
+                        $monthl = strftime("%B", strtotime("+" . $d . "days"));
+                        $monthwn = strftime("%m", strtotime("+" . $d . "days"));
                         $year = strftime("%G", strtotime("+" . $d . "days"));
-                        if ($dwn2 >= 1 && $dwn2 <= 5) {
-
-                    ?>
+                        ?>
+                        <?php if ($dwn2 >= 1 && $dwn2 <= 5) { ?>
                             <div class="boxday">
 
-                                <h4 class="titleday"><?php echo $dwl . ' ' . $dwn .$monthwl. ' ' . $month . ' ' . $year ?></h4>
+                                <h4 class="titleday"><?php echo $dwl . ' ' . $dwn . ' ' . $monthl . ' ' . $year ?></h4>
                                 <?php
                                 $heure_depart_matin = 8;
-                                $heure_fin_matin = 12;
+                                $heure_fin_matin = 19;
                                 for ($hm = $heure_depart_matin; $hm <= $heure_fin_matin; $hm++) {
-                                    $dateviewwant = '';
+                                    $datedays = strtotime("+" . $d . "days");
+                                    $dateday = date("Y-m-d", $datedays);
                                 ?>
-                                    <?php echo $hm . ": 00"; ?><button type="submit" class="btn-view"></button>
-                                <?php
-
-
-                                }
-                                ?>
-                                <br>
-                                <div class="lign-color2"></div>
-                                <br>
-                                <?php
-                                $heure_depart_midi = 14;
-                                $heure_fin_midi = 19;
-                                for ($ha = $heure_depart_midi; $ha <= $heure_fin_midi; $ha++) {
-                                ?>
-                                    <?php echo $ha .  ": 00"; ?> <button type="submit" class="btn-view"></button>
-                            <?php
-                                }
-                            }
-                            ?>
+                                    <?php echo $date = $dateday . " " . $hm . ":00"; ?>
+                                    <?php if ($date >= $chamberinfo['debut'] && $chamberinfo['fin'] >= $date) { ?>
+                                        <button type="submit" class="btn-view dispo">Disponible</button>
+                                    <?php } else { ?>
+                                        <button type="submit" class="btn-view indispo">Indisponible</button>
+                                    <?php } ?>
+                                <?php } ?>
                             </div>
-                        <?php
-                    }
-
-                        ?>
+                        <?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </main>

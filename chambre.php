@@ -3,14 +3,10 @@
 include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
-$getidchamber = intval($_GET['id']);
-$getchamb = $bdd->prepare('SELECT * FROM chambres WHERE id = ? ');
+$getidchamber = $_GET['id'];
+$getchamb = $bdd->prepare('SELECT * FROM chambres WHERE imgcard = ? ');
 $getchamb->execute(array($getidchamber));
 $getchambinfos = $getchamb->fetch();
-
-if (isset($_POST['gotodispo'])) {
-    header("Refresh:0; url=./planning.php?id=" . $getidchamber );
-}
 
 ?>
 
@@ -43,9 +39,13 @@ if (isset($_POST['gotodispo'])) {
                             <?php echo 'Chambre de Luxe' ?>
                         </p>
                     </div>
-                    <form class="group-btn" action="" method="post">
-                        <button class="btn-view" name="gotodispo" title="Voir les disponibilités" type="submit">Voir les disponibilités</button>
-                    </form>
+                    <div class="group-btn">
+                        <?php if (isset($_SESSION['id'])) { ?>
+                            <button class="btn-view" onclick="window.location.href='./planning.php?id=<?php echo $getchambinfos['imgcard'] ?>';" title="Voir les disponibilités" type="submit">Voir les disponibilités</button>
+                        <?php } else { ?>
+                            <button class="btn-view dex" title="Connectez-Vous" type="button">Indisponibles (Connectez-vous)</button>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
         </section>
