@@ -48,14 +48,14 @@ main {
 }
 
 .input-res, .input-cal, .input-butt{
-    padding-top: 3%;
-    padding-bottom: 3%;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    padding: 3%;
+    margin: 3%;
     border-radius: 15px;
     text-align: center;
     font-family: "tangerine";
     font-size: 150%;
+    border: #820933 solid 1px;
+    width: 25vh;
 }
 
 .input-butt{

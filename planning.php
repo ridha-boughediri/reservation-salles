@@ -55,9 +55,9 @@ if (isset($_GET['id']) && isset($_SESSION['id'])) {
                                 ?>
                                     <?php echo $date = $dateday . " " . $hm . ":00"; ?>
                                     <?php if ($date >= $chamberinfo['debut'] && $chamberinfo['fin'] >= $date) { ?>
-                                        <button type="submit" class="btn-view dispo">Disponible</button>
+                                        <button type="submit" class="btn-view dispo" onclick="window.location.href='./reservation-form.php?id=<?php echo $_GET['id'] ?>&value=<?php echo $date ?>';">Disponible</button>
                                     <?php } else { ?>
-                                        <button type="submit" class="btn-view indispo">Indisponible</button>
+                                        <button type="button" class="btn-view indispo">Indisponible</button>
                                     <?php } ?>
                                 <?php } ?>
                             </div>

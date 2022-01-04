@@ -4,12 +4,9 @@ include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
 
-$getRESER = $bdd->query('SELECT * FROM reservations');
-$reservations = $getRESER->fetchAll();
+$getreserve = $bdd->query('SELECT * FROM reservations');
+$reservations = $getreserve->fetchAll();
 
-if (isset($_POST['ajout'])) {
-    header('Location: ./reservation-form.php');
-}
 
 ?>
 
@@ -33,9 +30,15 @@ if (isset($_POST['ajout'])) {
         <h2 class="titre">Les Réservations</h2>
         <?php foreach ($reservations as $reservation) : ?>
 
+            <?php
+            $gettitle = $bdd->prepare('SELECT * FROM chambres WHERE imgcard = ? ');
+            $gettitle->execute(array($reservation['titre']));
+            $gettitleinfos = $gettitle->fetch();
+            ?>
+
             <div class="contener-reservation">
                 <p class="parag">Titre:</p>
-                <?= $reservation['titre']; ?>
+                <?= $gettitleinfos['nom']; ?>
                 <br>
                 <p class="parag">Description:</p>
                 <?= $reservation['description']; ?>
@@ -48,10 +51,6 @@ if (isset($_POST['ajout'])) {
 
 
         <?php endforeach;  ?>
-
-        <form action="" method="POST">
-            <input class="button1" type="submit" name="ajout" value="Ajout de réservation">
-        </form>
     </main>
     <?php include('./footer.php'); ?>
 </body>
