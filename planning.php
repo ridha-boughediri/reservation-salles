@@ -3,7 +3,7 @@
 include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
-if (isset($_GET['id'])) {
+if (isset($_GET['id']) && isset($_SESSION['id'])) {
     $getchamber = $bdd->prepare('SELECT * FROM reservations WHERE titre = ? ');
     $getchamber->execute(array($_GET['id']));
     $chamberinfo = $getchamber->fetch();
@@ -72,5 +72,5 @@ if (isset($_GET['id'])) {
     </html>
 
 <?php } else {
-    # code...
+    header("Refresh:0; url=./index.php");
 } ?>

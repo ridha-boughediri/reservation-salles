@@ -3,7 +3,7 @@ $url = $_SERVER['PHP_SELF'];
 
 if (isset($_GET['deco'])) {
     session_destroy();
-    header("Location:./index.php");
+    header("Refresh:0.5; url=./index.php");
 }
 
 ?>
