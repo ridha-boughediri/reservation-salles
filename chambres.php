@@ -37,7 +37,7 @@ $getchambers = $bdd->query('SELECT * FROM chambres');
                     </div>
                     <div class="imgandbtn">
                         <div class="content-img-card">
-                            <img class="img-card" src="./img/imgcard/<?php echo $getchambersinfos['imgcard'] ?>" alt="">
+                            <img class="img-card" src="./img/imgcard/<?php echo $getchambersinfos['imgcard'] ?>.jpg" alt="">
                         </div>
 
                         <div class="content-btn-res">
