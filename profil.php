@@ -61,7 +61,7 @@ if (isset($_SESSION['id'])) {
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-label">Password:</label><br>
-                            <input type="text" name="password" class="login-input" placeholder="<?php echo $usersinfo['password'] ?>">
+                            <input type="password" name="password" class="login-input" placeholder=".......">
                         </div>
                         <div class="form-group">
                             <input type="submit" name="edit" id="submit-signup" class="login-submit" value="Éditer">

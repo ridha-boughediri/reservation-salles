@@ -57,18 +57,15 @@ if (!isset($_SESSION['id'])) {
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-label">Password:</label>
-                            <input type="text" name="password" id="password" class="login-input">
+                            <input type="password" name="password" id="password" class="login-input">
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-label">Repeat Password:</label>
-                            <input type="text" name="confpassword" id="password" class="login-input">
+                            <input type="password" name="confpassword" id="password" class="login-input">
                         </div>
                         <div class="form-group">
                             <input type="submit" name="signin" id="submit-signup" class="login-submit" value="submit">
                         </div>
-                        <!-- <div class="register-link">
-                            <a href="./connexion.php" class="text-info">Sign in here &#10132;</a>
-                        </div> -->
                     </form>
                 </div>
             </div>

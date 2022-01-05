@@ -7,6 +7,7 @@ if (isset($_GET['id']) && isset($_SESSION['id'])) {
     $getchamber = $bdd->prepare('SELECT * FROM reservations WHERE titre = ? ');
     $getchamber->execute(array($_GET['id']));
     $chamberinfo = $getchamber->fetch();
+    $chambercount = $getchamber->rowCount();
 ?>
 
     <!DOCTYPE html>
@@ -54,10 +55,20 @@ if (isset($_GET['id']) && isset($_SESSION['id'])) {
                                     $dateday = date("Y-m-d", $datedays);
                                 ?>
                                     <?php echo $date = $dateday . " " . $hm . ":00"; ?>
-                                    <?php if ($date >= $chamberinfo['debut'] && $chamberinfo['fin'] <= $date) { ?>
-                                        <button type="submit" class="btn-view dispo" onclick="window.location.href='./reservation-form.php?id=<?php echo $_GET['id'] ?>&value=<?php echo $date ?>';">Disponible</button>
+                                    <?php if ($chambercount > 0) { ?>
+                                        <?php if ($date >= $chamberinfo['debut'] && $chamberinfo['fin'] <= $date) { 
+                                            $onclick = 'onclick="'.'window.location.href="' . './reservation-form.php?id=' . $_GET["id"] . '&value='. $date . '";' . '"';
+                                            $textbtndispo = 'Disponible';
+                                            $class = 'dispo';
+                                        } else {
+                                            $onclick = '';
+                                            $textbtndispo = 'Indisponible';
+                                            $class = 'indispo';
+                                       } ?>
+                                        
+                                        <button type="submit" class="btn-view <?php echo $class ?>" <?php echo $onclick ?>><?php echo $textbtndispo ?></button>
                                     <?php } else { ?>
-                                        <button type="button" class="btn-view indispo">Indisponible</button>
+                                        <button type="submit" class="btn-view dispo" onclick="window.location.href='./reservation-form.php?id=<?php echo $_GET['id'] ?>&value=<?php echo $date ?>';">Disponible</button>
                                     <?php } ?>
                                 <?php } ?>
                             </div>

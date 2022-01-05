@@ -55,7 +55,7 @@ if (!isset($_SESSION['id'])) {
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-label">Password:</label>
-                            <input type="text" name="password" id="password" class="login-input">
+                            <input type="password" name="password" id="password" class="login-input">
                         </div>
                         <div class="form-group">
                             <input type="submit" name="val-button" id="submit-signin" class="login-submit" value="submit">
