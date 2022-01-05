@@ -48,7 +48,7 @@ $getchambers = $bdd->query('SELECT * FROM chambres LIMIT 3');
         </div>
     </main>
     <article>
-
+        <a href="./reservation.php">Nos Réservations</a>
     </article>
     <div id="threeart"></div>
     <?php include('./footer.php'); ?>

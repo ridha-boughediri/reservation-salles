@@ -79,7 +79,7 @@ if (isset($_GET['id'])) {
                                         for ($hm = $heure_depart_matin; $hm <= $heure_fin_matin; $hm++) {
                                             $datedays = strtotime("+" . $d . "days");
                                             $dateday = date("Y-m-d", $datedays);
-                                            $date  = $dateday . " " . $hm  . ":00";
+                                            $date  = $dateday . " " . $hm  . ":00:00";
                                         ?>
                                             <option value="<?php echo $date; ?>"><?php echo $date; ?></option>
                                             
