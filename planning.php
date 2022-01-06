@@ -38,7 +38,7 @@ if (isset($_GET['id']) && isset($_SESSION['id'])) {
                 </div>
                 <div class="lign-color"></div>
                 <div class="container-planning">
-                    <?php for ($d = 0; $d < 7; $d++) { ?>
+                    <?php for ($d = 0; $d < 8; $d++) { ?>
                         <?php
                         $dwl = strftime("%A", strtotime("+" . $d . "days"));
                         $dwn = strftime("%d", strtotime("+" . $d . "days"));
