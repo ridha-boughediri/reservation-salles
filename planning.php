@@ -6,12 +6,8 @@ include('./fileconfig/configuser.php');
 if (isset($_GET['id']) && isset($_SESSION['id'])) {
     $getchamber = $bdd->prepare('SELECT * FROM reservations WHERE titre = ? ');
     $getchamber->execute(array($_GET['id']));
-    $chamberinfo = $getchamber->fetch();
+    $chamberinfo = $getchamber->fetchAll();
     $chambercount = $getchamber->rowCount();
-
-    $getchamberuserinfo = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ? ');
-    $getchamberuserinfo->execute(array($chamberinfo['id_utilisateur']));
-    $chamberuserinfo = $getchamberuserinfo->fetch();
 ?>
 
     <!DOCTYPE html>
@@ -67,21 +63,37 @@ if (isset($_GET['id']) && isset($_SESSION['id'])) {
                                     <?php echo $date; ?>
                                     <br>
                                     <?php if ($chambercount > 0) { ?>
-                                        <?php if ($date < $chamberinfo['debut']) {
+
+                                        <?php
+
+                                        foreach ($chamberinfo as $chamberinfokey) {
+
+                                            $getchamberuserinfo = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ? ');
+                                            $getchamberuserinfo->execute(array($chamberinfokey['id_utilisateur']));
+                                            $chamberuserinfo = $getchamberuserinfo->fetch();
+                                        }
+
+                                        // var_dump($chamberinfokey);
+
+                                        if ($date < $chamberinfokey['debut']) {
                                             $onclick = "window.location.href='./reservation-form.php?id=" . $_GET["id"] . "&value=" . $date . "';";
                                             $textbtndispo = 'Disponible';
                                             $class = 'dispo';
-                                        } else if ($chamberinfo['fin'] > $date) {
+                                        } else if ($chamberinfokey['fin'] > $date) {
                                             $onclick = '';
-                                            $textbtndispo = 'Indisponible' . '<p class="text-btnindipo">(' . $chamberuserinfo['login']. ')</p>';
+                                            $textbtndispo = 'Réservé par' . '<p class="text-btnindipo">(' . $chamberuserinfo['login'] . ')</p>';
                                             $class = 'indispo';
                                         } else {
                                             $onclick = "window.location.href='./reservation-form.php?id=" . $_GET["id"] . "&value=" . $date . "';";
                                             $textbtndispo = 'Disponible';
                                             $class = 'dispo';
-                                        } ?>
+                                        }
+
+                                         
+                                        ?>
 
                                         <button type="submit" class="btn-view <?php echo $class ?>" onclick="<?php echo $onclick ?>"><?php echo $textbtndispo ?></button>
+
                                     <?php } else { ?>
                                         <button type="submit" class="btn-view dispo" onclick="window.location.href='./reservation-form.php?id=<?php echo $_GET['id'] ?>&value=<?php echo $date ?>';">Disponible</button>
                                     <?php } ?>

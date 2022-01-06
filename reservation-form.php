@@ -82,11 +82,11 @@ if (isset($_GET['id'])) {
                                             $date  = $dateday . " " . $hm  . ":00:00";
                                         ?>
                                             <option value="<?php echo $date; ?>"><?php echo $date; ?></option>
-                                            
+
                                         <?php } ?>
                                     </div>
                                 <?php } ?>
-                            <?php } ?> 
+                            <?php } ?>
                         </select>
                         <input class="input-butt" type="submit" name="btnSubmit">
                         <?php if (isset($erreur)) { ?>

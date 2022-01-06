@@ -14,6 +14,7 @@ if (isset($_GET['deco'])) {
             <h2 class="goto" onclick="gotoinfos()">Infos Hotel</h2>
             <h2 class="goto" onclick="gotoreschamber()">Nos chambres</h2>
         </div>
+        
         <div class="logo">
             <img src="./img/logo.png" onclick="gotoindex()" alt="">
         </div>
