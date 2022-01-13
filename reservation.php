@@ -34,9 +34,18 @@ $reservations = $getreserve->fetchAll();
             $gettitle = $bdd->prepare('SELECT * FROM chambres WHERE imgcard = ? ');
             $gettitle->execute(array($reservation['titre']));
             $gettitleinfos = $gettitle->fetch();
+
+
+
+            $getusers = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ? ');
+            $getusers->execute(array($reservation['id_utilisateur']));
+            $getusersinfos = $getusers->fetch();
             ?>
 
             <div class="contener-reservation">
+                <p class="parag">Name Users:</p>
+                <?= $getusersinfos['login']; ?>
+                <br>
                 <p class="parag">Titre:</p>
                 <?= $gettitleinfos['nom']; ?>
                 <br>

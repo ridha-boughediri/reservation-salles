@@ -6,7 +6,6 @@ include('./fileconfig/configuser.php');
 if (isset($_GET['id'])) {
 
     if (isset($_POST['btnSubmit'])) {
-        // $titre = htmlspecialchars($_POST['titre']);
         $description = htmlspecialchars($_POST['description']);
         $dateFin = $_POST['dateFin'];
 
@@ -17,7 +16,7 @@ if (isset($_GET['id'])) {
         }
         if (!empty($_POST['description']) and !empty($_POST['dateFin'])) {
             $insertRES = $bdd->prepare('INSERT INTO reservations (titre, description, debut, fin, id_utilisateur) VALUES (?,?,?,?,?)');
-            $insertRES->execute(array($_GET['id'], $description, $dateDeb, $dateFin, $getid));
+            $insertRES->execute(array($_GET['id'], $description, $dateDeb, $dateFin, $_SESSION['id']));
             $erreur = "votre reservation est prise en compte";
             header('Location: ./reservation.php');
         } else {

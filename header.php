@@ -59,6 +59,6 @@ if (isset($_GET['deco'])) {
     }
 
     function gotodeconnexion() {
-        window.location = '<?php echo $url ?>?deco';
+        window.location = './logout.php?deco=<?php echo $url ?>';
     }
 </script>

@@ -4,10 +4,6 @@ include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
 if (isset($_GET['id']) && isset($_SESSION['id'])) {
-    $getchamber = $bdd->prepare('SELECT * FROM reservations WHERE titre = ? ');
-    $getchamber->execute(array($_GET['id']));
-    $chamberinfo = $getchamber->fetchAll();
-    $chambercount = $getchamber->rowCount();
 ?>
 
     <!DOCTYPE html>
@@ -59,43 +55,31 @@ if (isset($_GET['id']) && isset($_SESSION['id'])) {
                                         $hmo = $hm;
                                     }
                                     $date = $dateday . " " . $hmo . ":00:00";
-                                ?>
-                                    <?php echo $date; ?>
-                                    <br>
-                                    <?php if ($chambercount > 0) { ?>
 
-                                        <?php
+                                    $getchamber = $bdd->prepare('SELECT * FROM reservations WHERE titre = ? and  debut <= ? and fin >= ? ');
+                                    $getchamber->execute(array($_GET['id'], $date, $date));
+                                    $chamberinfo = $getchamber->fetchAll();
+                                    $chambercount = $getchamber->rowCount();
+                                    
+                                ?>
+
+                                    <br>
+                                    <?php if ($chambercount >= 1) {
 
                                         foreach ($chamberinfo as $chamberinfokey) {
 
                                             $getchamberuserinfo = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ? ');
                                             $getchamberuserinfo->execute(array($chamberinfokey['id_utilisateur']));
                                             $chamberuserinfo = $getchamberuserinfo->fetch();
+
+                                            $userplace = $chamberuserinfo['login'] ;
                                         }
+                                    ?>
 
-                                        // var_dump($chamberinfokey);
-
-                                        if ($date < $chamberinfokey['debut']) {
-                                            $onclick = "window.location.href='./reservation-form.php?id=" . $_GET["id"] . "&value=" . $date . "';";
-                                            $textbtndispo = 'Disponible';
-                                            $class = 'dispo';
-                                        } else if ($chamberinfokey['fin'] > $date) {
-                                            $onclick = '';
-                                            $textbtndispo = 'Réservé par' . '<p class="text-btnindipo">(' . $chamberuserinfo['login'] . ')</p>';
-                                            $class = 'indispo';
-                                        } else {
-                                            $onclick = "window.location.href='./reservation-form.php?id=" . $_GET["id"] . "&value=" . $date . "';";
-                                            $textbtndispo = 'Disponible';
-                                            $class = 'dispo';
-                                        }
-
-                                         
-                                        ?>
-
-                                        <button type="submit" class="btn-view <?php echo $class ?>" onclick="<?php echo $onclick ?>"><?php echo $textbtndispo ?></button>
+                                        <button type="submit" class="btn-view indispo">Réservé par <p class="text-btnindipo"><?php echo $userplace ?>(<?php echo $hmo.'h' ?>)</p></button>
 
                                     <?php } else { ?>
-                                        <button type="submit" class="btn-view dispo" onclick="window.location.href='./reservation-form.php?id=<?php echo $_GET['id'] ?>&value=<?php echo $date ?>';">Disponible</button>
+                                        <button type="submit" class="btn-view dispo" onclick="window.location.href='./reservation-form.php?id=<?php echo $_GET['id'] ?>&value=<?php echo $date ?>';">Disponible(<?php echo $hmo.'h' ?>)</button>
                                     <?php } ?>
                                 <?php } ?>
                             </div>
