@@ -75,4 +75,7 @@ if (isset($_SESSION['id'])) {
 
     </html>
 
-<?php } ?>
+<?php } else {
+    header("Refresh:0; url=./index.php");
+}
+?>
