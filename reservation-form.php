@@ -56,7 +56,6 @@ if (isset($_GET['id'])) {
                         <?php } else { ?>
                             <input class="input-cal" type="datetime-local" name="dateDeb">
                         <?php } ?>
-                        <!-- <input class="input-cal" type="datetime-local" name="dateFin"> -->
                         <select name="dateFin" class="input-cal">
                             <option value="">-- Date de fin --</option>
                             <?php for ($d = 0; $d < 15; $d++) { ?>
@@ -78,11 +77,20 @@ if (isset($_GET['id'])) {
                                         for ($hm = $heure_depart_matin; $hm <= $heure_fin_matin; $hm++) {
                                             $datedays = strtotime("+" . $d . "days");
                                             $dateday = date("Y-m-d", $datedays);
-                                            $date  = $dateday . " " . $hm  . ":00:00";
-                                        ?>
-                                            <option value="<?php echo $date; ?>"><?php echo $date; ?></option>
+                                            if ($hm < 10) {
+                                                $hmo = 0 . $hm;
+                                            } else {
+                                                $hmo = $hm;
+                                            }
+                                            $date  = $dateday . " " . $hmo  . ":00:00";
 
-                                        <?php } ?>
+                                            if ($date > $_GET['value']) {
+
+                                        ?>
+                                                <option value="<?php echo $date; ?>"><?php echo $date; ?></option>
+
+                                        <?php }
+                                        } ?>
                                     </div>
                                 <?php } ?>
                             <?php } ?>

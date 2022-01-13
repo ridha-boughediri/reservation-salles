@@ -4,7 +4,7 @@ include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 
 
-$getreserve = $bdd->query('SELECT * FROM reservations');
+$getreserve = $bdd->query('SELECT * FROM reservations ORDER BY id DESC');
 $reservations = $getreserve->fetchAll();
 
 
@@ -43,7 +43,7 @@ $reservations = $getreserve->fetchAll();
             ?>
 
             <div class="contener-reservation">
-                <p class="parag">Name Users:</p>
+                <p class="parag">Client:</p>
                 <?= $getusersinfos['login']; ?>
                 <br>
                 <p class="parag">Titre:</p>
