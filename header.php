@@ -1,64 +1,13 @@
-<?php
-$url = $_SERVER['PHP_SELF'];
-
-if (isset($_GET['deco'])) {
-    session_destroy();
-    header("Refresh:0.5; url=./index.php");
-}
-
-?>
-
-<header>
-    <nav>
-        <div class="list-goto">
-            <h2 class="goto" onclick="gotoinfos()">Infos Hotel</h2>
-            <h2 class="goto" onclick="gotoreschamber()">Nos chambres</h2>
-        </div>
-        
-        <div class="logo">
-            <img src="./img/logo.png" onclick="gotoindex()" alt="">
-        </div>
-
-        <?php if (isset($_SESSION['id'])) { ?>
-            <div class="list-goto">
-                <h2 class="goto" onclick="gotoprofile()">Profil</h2>
-                <h2 class="goto" onclick="gotodeconnexion()">Déconnexion</h2>
-            </div>
-        <?php } else { ?>
-            <div class="list-goto">
-                <h2 class="goto" onclick="gotoincription()">Inscription</h2>
-                <h2 class="goto" onclick="gotoconnexion()">Connexion</h2>
-            </div>
-        <?php } ?>
-    </nav>
-</header>
+<footer>
+    <ul>
+        <li>Nous Contacter</li>
+        <li>© Magic View Hotel. Tous droits réservés.</li>
+        <li onclick="gogit()">GitHub Here.</li>
+    </ul>
+</footer>
 
 <script>
-    function gotoinfos() {
-        window.location = './infos.php';
-    }
-
-    function gotoincription() {
-        window.location = './inscription.php';
-    }
-
-    function gotoconnexion() {
-        window.location = './connexion.php';
-    }
-
-    function gotoindex() {
-        window.location = './index.php';
-    }
-
-    function gotoreschamber() {
-        window.location = './chambres.php';
-    }
-
-    function gotoprofile() {
-        window.location = './profil.php';
-    }
-
-    function gotodeconnexion() {
-        window.location = './logout.php?deco=<?php echo $url ?>';
+    function gogit() {
+        window.location = 'https://github.com/';
     }
 </script>

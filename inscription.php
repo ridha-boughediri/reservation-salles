@@ -1,5 +1,9 @@
 <?php
 
+
+//test inscription
+
+
 include('./fileconfig/config.php');
 include('./fileconfig/configuser.php');
 

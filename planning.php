@@ -1,3 +1,5 @@
+//affichage html de notre planning
+
 <?php
 
 include('./fileconfig/config.php');
