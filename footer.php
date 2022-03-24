@@ -8,6 +8,6 @@
 
 <script>
     function gogit() {
-        window.location = 'https://github.com/';
+        window.location = 'https://github.com/ridha-boughediri/reservation-salles/';
     }
 </script>
